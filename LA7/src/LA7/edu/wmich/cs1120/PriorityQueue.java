@@ -1,6 +1,7 @@
 package LA7.edu.wmich.cs1120;
 
 public class PriorityQueue<E> {
+	
 	E data;
 	// Determine if the priority queue is empty.
 	public boolean isEmpty() {
