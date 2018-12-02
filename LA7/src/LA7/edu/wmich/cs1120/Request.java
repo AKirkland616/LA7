@@ -22,7 +22,7 @@ public class Request<T> implements Comparable<T> {
 		cdept = courseDept;
 		num =courseNumber;
 		gpa = GPA_Array;
-		
+		GPA_Cal(GPA_Array);
 		
 	}
 	// Returns number of years to graduation (0 for seniors, 1 for juniors etc.). This is determined from the 
@@ -42,9 +42,13 @@ public class Request<T> implements Comparable<T> {
 
 	// Calculate the GPA for a particular student.
 	private double GPA_Cal(double[][] GPA_Array) {
-		
-		
-		return 0;
+		double ch = GPA_Array[0][1]+GPA_Array[1][1]+GPA_Array[2][1]+GPA_Array[3][1];
+		double qp = 0;
+		for(int i = 0;i<GPA_Array.length;i++) {
+			qp+= (GPA_Array[i][0]*GPA_Array[i][1]);
+		}
+		System.out.println((qp/ch));
+		return (qp/ch);
 		
 	}
 

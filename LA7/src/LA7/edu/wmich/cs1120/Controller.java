@@ -23,7 +23,7 @@ public class Controller implements IController {
 		try {
 			String s = course.readLine();
 			while(s!=null) {
-			//System.out.println(s);
+			System.out.println(s);
 			String [] v = s.split(",");
 //			String courseDept = v[0];
 //			String courseNum = v[1];
@@ -45,7 +45,7 @@ public class Controller implements IController {
 		try {
 			String s = request.readLine();
 			while(s!=null) {
-			//System.out.println(s);
+			System.out.println(s);
 			String [] v = s.split(",");
 			double[][] grades = new double [4][2];
 			grades[0][0]= Double.parseDouble(v[5]);
