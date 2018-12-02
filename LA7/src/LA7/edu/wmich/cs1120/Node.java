@@ -18,7 +18,6 @@ public class Node<E> implements INode {
 	@Override
 	public E getData() {
 		// TODO Auto-generated method stub
-	
 		return value;
 	}
 

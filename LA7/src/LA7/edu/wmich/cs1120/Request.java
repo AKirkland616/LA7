@@ -6,12 +6,26 @@ public class Request<T> implements Comparable<T> {
 	private String level;
 	private String cdept;
 	private int num;
-	private double[][] gpa;
+	private double gpa;
 
 	@Override
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
-		return 0;
+		if(o.equals(sdept.equals(cdept))) {
+			if(this.level.compareTo("Senior") ==0) {
+				o.equals(0);
+			}
+			else if(this.level.compareTo("Junior") == 1) {
+				
+			}
+			else if (this.level.compareTo("Freshman") == 3) {
+				
+			}
+			else {
+							// ECE 
+			}
+		}
+		return o;
 	}
 	
 	// Constructor
@@ -21,8 +35,8 @@ public class Request<T> implements Comparable<T> {
 		level = studentLevel;
 		cdept = courseDept;
 		num =courseNumber;
-		gpa = GPA_Array;
-		GPA_Cal(GPA_Array);
+		gpa = GPA_Cal(GPA_Array);
+		
 		
 	}
 	// Returns number of years to graduation (0 for seniors, 1 for juniors etc.). This is determined from the 
@@ -47,12 +61,23 @@ public class Request<T> implements Comparable<T> {
 		for(int i = 0;i<GPA_Array.length;i++) {
 			qp+= (GPA_Array[i][0]*GPA_Array[i][1]);
 		}
-		System.out.println((qp/ch));
+		//System.out.println((qp/ch));
 		return (qp/ch);
 		
 	}
 
-	// Getters for a student’s name and department, and the department and number of a course 
-
+	// Getters for a students name and department, and the department and number of a course 
+	public String getName() {
+		return name;
+	}
+	public String getSDept() {
+		return sdept;
+	}
+	public String getCDept() {
+		return cdept;
+	}
+	public int getCourseNum() {
+		return num;
+	}
 
 }
