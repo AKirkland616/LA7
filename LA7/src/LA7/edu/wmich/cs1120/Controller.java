@@ -64,6 +64,7 @@ public class Controller implements IController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 
 	}
@@ -71,12 +72,15 @@ public class Controller implements IController {
 	@Override
 	public void processRequests() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void printClassList() {
 		// TODO Auto-generated method stub
+		for (int i =0; i < ll.size(); i++) {
+			System.out.println(ll.get(i));
+		}
 
 	}
 

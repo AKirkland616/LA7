@@ -34,7 +34,7 @@ public class Request<T> implements Comparable<T> {
 			return 1;
 		}else if(level.equals("Sophmore")){
 			return 2;
-		}else {
+		}else { //freshman
 			return 3;
 		}
 		
@@ -42,6 +42,8 @@ public class Request<T> implements Comparable<T> {
 
 	// Calculate the GPA for a particular student.
 	private double GPA_Cal(double[][] GPA_Array) {
+		
+		
 		return 0;
 		
 	}

@@ -14,13 +14,19 @@ public class Course implements ICourse {
 	@Override
 	public boolean isFull() {
 		// TODO Auto-generated method stub
-		return false;
+		if (num == cap) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	
 	}
 
 	@Override
 	public void addStudent(String name) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
