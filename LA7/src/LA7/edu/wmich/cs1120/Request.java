@@ -3,7 +3,7 @@ package LA7.edu.wmich.cs1120;
 public class Request<T> implements Comparable<T> {
 	private String name;
 	private String sdept;
-	private String level;
+	private int level;
 	private String cdept;
 	private int num;
 	private double gpa;
@@ -11,28 +11,41 @@ public class Request<T> implements Comparable<T> {
 	@Override
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
-		if(o.equals(sdept.equals(cdept))) {
-			if(this.level.compareTo("Senior") ==0) {
-				o.equals(0);
+		if(o instanceof Request) {
+			System.out.println(this.getSDept()+" compared to "+ ((Request) o).getSDept());
+			if(this.getSDept().equals(((Request) o).getSDept())) {
+				System.out.println(this.getLevel()+" compared to "+ ((Request) o).getLevel());
+				if(this.getLevel() > ((Request) o).getLevel()) {
+					return -1;
+				}else if(this.getLevel() < ((Request) o).getLevel()) {
+					return 1;
+				}else if(this.getLevel() == ((Request) o).getLevel()) {
+					System.out.println(this.getGPA()+" compared to "+ ((Request) o).getGPA());
+					if(this.getGPA() > ((Request) o).getGPA()) {
+						return -1;
+					}else if(this.getGPA() < ((Request) o).getGPA()) {
+						return 1;
+					}else if(this.getGPA() == ((Request) o).getGPA()) {
+						return 0;
+					}
+				}
+			}else if (this.getSDept().equals("CS")&&((Request) o).getSDept().equals("ECE")) {
+				return 1;
+			}else if (this.getSDept().equals("ECE")&&((Request) o).getSDept().equals("CS")) {
+				return -1;
 			}
-			else if(this.level.compareTo("Junior") == 1) {
-				
+		
+			
 			}
-			else if (this.level.compareTo("Freshman") == 3) {
-				
-			}
-			else {
-							// ECE 
-			}
-		}
-		return o;
+		
+		return -99;
 	}
 	
 	// Constructor
 	public Request(String studentName, String studentDept, String studentLevel, String courseDept, int courseNumber, double[][] GPA_Array) {
 		name = studentName;
 		sdept = studentDept;
-		level = studentLevel;
+		level = yearsFromGraduation(studentLevel);
 		cdept = courseDept;
 		num =courseNumber;
 		gpa = GPA_Cal(GPA_Array);
@@ -78,6 +91,12 @@ public class Request<T> implements Comparable<T> {
 	}
 	public int getCourseNum() {
 		return num;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public double getGPA() {
+		return gpa;
 	}
 
 }

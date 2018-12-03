@@ -1,7 +1,7 @@
 package LA7.edu.wmich.cs1120;
 
 public class LinkedList<E> {
-	Node head;// = new Node(null);
+	Node head;
 	Node tail;
 	
 	// Determine if the LinkedList is empty.
@@ -23,14 +23,12 @@ public class LinkedList<E> {
 	}
 	// get the object in specific position in the LinkedList used to print the enrolled student contents inside the Course class and return the name
 	public E get(int position) {
-		//E refE = null;
-		Node ref = head;
+		Node<E> ref = head;
 		for(int i =0 ; i < position;i++) {
 			ref = ref.getNext();
-			//refE.equals(ref.getData());
 		}
 		
-		return null;
+		return ref.getData();
 		
 	}
 	// Return number of elements in the list.

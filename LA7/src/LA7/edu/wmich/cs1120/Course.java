@@ -11,6 +11,7 @@ public class Course implements ICourse {
 		name = n;
 		num = Integer.parseInt(numb);
 		cap = Integer.parseInt(capi);
+		students = new String[cap];
 	}
 
 	@Override
@@ -30,12 +31,14 @@ public class Course implements ICourse {
 	@Override
 	public void printClassList() {
 		// TODO Auto-generated method stub
-		System.out.println("Class List for " + name );
+		System.out.println("Class List for " + name +" " +num);
 		for(int i = 0; i< students.length;i++) {
+			if(students[i]!=null)
 			System.out.println(students[i]);
 		}
 
 	}
+	
 	
 	@Override
 	public boolean equals(Object arg0) {
@@ -43,4 +46,13 @@ public class Course implements ICourse {
 		
 	}
 
+	public String getName() {
+		return name;
+	}
+	public int getNum() {
+		return num;
+	}
+	public int getCap() {
+		return cap;
+	}
 }
