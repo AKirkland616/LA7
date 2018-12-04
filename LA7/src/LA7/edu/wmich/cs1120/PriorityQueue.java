@@ -1,8 +1,5 @@
 package LA7.edu.wmich.cs1120;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
 public class PriorityQueue<E> {
 	private Node<E> head;
 	private Node<E> tail;
@@ -17,10 +14,6 @@ public class PriorityQueue<E> {
 	public void enqueue(E data) {
 	
 		if (data instanceof Request) {
-
-		
-	
-		//data.compareTo(o);
 		Node n = new Node(data);
 		if(isEmpty()) {
 			head =n;
@@ -29,29 +22,30 @@ public class PriorityQueue<E> {
 			
 			Node headcopy = head;
 			int index = 0;
-			//System.out.println("hello");
 			while(headcopy != null) {
-				((Request) data).compareTo(headcopy);
-				if(((Request) data).compareTo(headcopy)== -1) {
-					System.out.println("");
+				if(((Request) data).compareTo(headcopy.getData())== 1||((Request) data).compareTo(headcopy.getData())== 0) {
 					break;
 				}
 				headcopy = headcopy.getNext();
 				index++;
 				
 			}
+			if (index == 0) {
+				Node newNode = new Node(n.getData(), head);
+				head = newNode;
 			
-			Node ref = head;
-			for(int i = 0; i <index-1; i++) {
+			}else {
+				Node ref = head;
+				for(int i = 0; i <index-1; i++) {
 				ref = ref.getNext();
 			}
-			
 			Node successor = ref.getNext();
 			ref.setNext(n);
 			n.setNext(successor);
 			if(n.getNext() == null) {
 				tail = n;
 			}
+		}
 		}
 		}
 	}
@@ -71,8 +65,8 @@ public class PriorityQueue<E> {
 		Node ref = head;
 		while(ref!=null) {
 			if(ref.getData() instanceof Request) {
-			System.out.println(ref.getData());
-			ref=ref.getNext();
+				System.out.println(ref.getData());
+				ref=ref.getNext();
 			}
 		}
 	}

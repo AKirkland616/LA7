@@ -23,20 +23,19 @@ public class Controller implements IController {
 		try {
 			String s = course.readLine();
 			while(s!=null) {
-			//System.out.println(s);
 			String [] v = s.split(",");
-//			String courseDept = v[0];
-//			String courseNum = v[1];
-//			String cap = v[2];
 			Course c = new Course(v[0],v[1],v[2]);
+			System.out.println(v[0]+","+v[1]+","+v[2]);
 			ll.add(c);
 			s = course.readLine();	
 			
 			}
+			course.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
@@ -45,7 +44,6 @@ public class Controller implements IController {
 		try {
 			String s = request.readLine();
 			while(s!=null) {
-			//System.out.println(s);
 			String [] v = s.split(",");
 			double[][] grades = new double [4][2];
 			grades[0][0]= Double.parseDouble(v[5]);
@@ -59,8 +57,8 @@ public class Controller implements IController {
 			Request r =new Request(v[0],v[2],v[1],v[3],Integer.parseInt(v[4]),grades);
 			addRequest(r);
 			s=request.readLine();
-			
 			}
+			request.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,63 +70,29 @@ public class Controller implements IController {
 	@Override
 	public void processRequests() {
 		// TODO Auto-generated method stub
-		//System.out.println("<<<<<<<<<<<< Beginning of Queue Contents >>>>>>>>>>>>>>>>>");
 		System.out.println("");
 		pq.Qprint();
 		System.out.println("");
-//		Request co1;// = pq.dequeue();
-//		Request co2 = pq.dequeue();
-////		while(!pq.isEmpty()) {
-////			co1 = pq.dequeue();
-////			System.out.println("dequed something");
-////			System.out.println(co1.compareTo(co2));
-////		}
-//		while(!pq.isEmpty()) {
-//			co1 = pq.dequeue();
-//			//System.out.println("dequed something");
-//			
-//			if(co1.compareTo(co2)== -1) {
-//				pq.enqueue(co1);
-//				co1 = co2;
-//			}else if(co1.compareTo(co2) == 1) {
-//				if (getCourse(co1.getCDept(),co1.getCourseNum())==ll.get(0)) {
-//					ll.get(0).addStudent(co1.getName());
-//					System.out.println("adding " + co1.getName()+ " to " + co1.getCDept()+ " " + co1.getCourseNum());
-//				}else {
-//					ll.get(1).addStudent(co1.getName());
-//					System.out.println("adding " + co1.getName()+ " to " + co1.getCDept()+ " " + co1.getCourseNum());
-//				}
-//			}else {//if equal
-//				if (getCourse(co1.getCDept(),co1.getCourseNum())==ll.get(0)) {
-//					ll.get(0).addStudent(co1.getName());
-//					System.out.println("adding " + co1.getName()+ " to " + co1.getCDept()+ " " + co1.getCourseNum());
-//				}else {
-//					ll.get(1).addStudent(co1.getName());
-//					System.out.println("adding " + co1.getName()+ " to " + co1.getCDept()+ " " + co1.getCourseNum());
-//				}
-//			}
-//			if(pq.isEmpty()) {
-//				break;
-//			}
-//		}
-		
-		//System.out.println("<<<<<<<<<<<< End of Queue Contents >>>>>>>>>>>>>>>>>");
 		while(!pq.isEmpty()) {
 			Request co1 = pq.dequeue();
 			if (getCourse(co1.getCDept(),co1.getCourseNum())==ll.get(0)) {
 				if(!ll.get(0).isFull()) {
+					System.out.println(co1+" processed");
 					System.out.println(co1.getName()+" successfully registered for " + co1.getCDept()+ " "+ co1.getCourseNum());
 					ll.get(0).addStudent(co1.getName());
 				}else {
+					System.out.println(co1+" processed");
 					System.out.println(co1.getName()+" cannot register for " + co1.getCDept()+ " "+ co1.getCourseNum());
 				}
 				
 				
 			}else if (getCourse(co1.getCDept(),co1.getCourseNum())==ll.get(1)) {
 				if(!ll.get(1).isFull()) {
+					System.out.println(co1+" processed");
 					System.out.println(co1.getName()+" successfully registered for " + co1.getCDept()+ " "+ co1.getCourseNum());
 					ll.get(1).addStudent(co1.getName());
 				}else {
+					System.out.println(co1+" processed");
 					System.out.println(co1.getName()+" cannot register for " + co1.getCDept()+ " "+ co1.getCourseNum());
 				}
 				
@@ -148,7 +112,6 @@ public class Controller implements IController {
 	public void printClassList() {
 		// TODO Auto-generated method stub
 		for (int i =0; i < ll.size(); i++) {
-			//System.out.println("Class list for "+ll.get(i).getName()+" "+ ll.get(i).getNum());
 			System.out.println("");
 			ll.get(i).printClassList();
 		}
