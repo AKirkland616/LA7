@@ -3,7 +3,11 @@ package LA7.edu.wmich.cs1120;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+/**
+ * 
+ * @author Chris Niersbach and Anthony Kirkland
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) throws IOException {

@@ -2,13 +2,23 @@ package LA7.edu.wmich.cs1120;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
+/**
+ * 
+ * @author Chris Niersbach and Anthony Kirkland
+ *
+ */
 public class Controller implements IController {
 	PriorityQueue<Request> pq;
 	LinkedList<Course> ll;
 	BufferedReader course;
 	BufferedReader request;
-
+/**
+ * 
+ * @param requestQueue makes a request queue
+ * @param courses makes a linked list of all the courses offered
+ * @param fileIn makes the course a buffered reader
+ * @param fileIn1 makes request another buffered reader
+ */
 	public Controller(PriorityQueue<Request> requestQueue, LinkedList<Course> courses, BufferedReader fileIn, BufferedReader fileIn1) {
 		// TODO Auto-generated constructor stub
 		pq = requestQueue;
@@ -118,12 +128,18 @@ public class Controller implements IController {
 
 	}
 
+	/**
+	 * @param Request req takes a request and enqueue's it
+	 */
 	@Override
 	public void addRequest(Request req) {
 		// TODO Auto-generated method stub
 		pq.enqueue(req);
 	}
-
+/**
+ * @param courseDept takes a parameter for the course department ie: CS or ECE
+ * @param courseNumber take a integer parameter for the course number
+ */
 	@Override
 	public Course getCourse(String courseDept, int courseNumber) {
 		// TODO Auto-generated method stub

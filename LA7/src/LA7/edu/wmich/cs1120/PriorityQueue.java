@@ -11,6 +11,10 @@ public class PriorityQueue<E> {
 	}
 	
 	// Add object received to the priority queue taking into consideration the rules governing priority.
+	/**
+	 * 
+	 * @param data passes data of type E as a parameter
+	 */
 	public void enqueue(E data) {
 	
 		if (data instanceof Request) {

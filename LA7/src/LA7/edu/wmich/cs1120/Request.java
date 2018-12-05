@@ -9,6 +9,15 @@ public class Request<T> implements Comparable<T> {
 	private double gpa;
 	
 // Constructor
+	/**
+	 * 
+	 * @param studentName name for student
+	 * @param studentDept students major
+	 * @param studentLevel students grade level
+	 * @param courseDept what department of the course they are adding
+	 * @param courseNumber what number of the course they are adding
+	 * @param GPA_Array their GPA array which equals their calculated gpa
+	 */
 	public Request(String studentName, String studentDept, String studentLevel, String courseDept, int courseNumber, double[][] GPA_Array) {
 		name = studentName;
 		sdept = studentDept;
@@ -19,6 +28,10 @@ public class Request<T> implements Comparable<T> {
 		}
 	
 	@Override
+	/**
+	 * @param o "o" is a type T request object and is used to compare the students by level/dept
+	 * @return -99 a dummy variable
+	 */
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
 		if(o instanceof Request) {
@@ -54,6 +67,11 @@ public class Request<T> implements Comparable<T> {
 	
 	// Returns number of years to graduation (0 for seniors, 1 for juniors etc.). This is determined from the 
 	// student’s level – senior, junior, etc.
+	/**
+	 * 
+	 * @param level is what grade they are
+	 * @return an int for their grade level
+	 */
 	public int yearsFromGraduation(String level) {
 		if(level.contains("Senior")){
 			return 0;
@@ -68,6 +86,11 @@ public class Request<T> implements Comparable<T> {
 	}
 
 	// Calculate the GPA for a particular student.
+	/**
+	 * 
+	 * @param GPA_Array make a 2D array of all the classes they took and the amount of credit hours for each class
+	 * @return their calculated gpa
+	 */
 	private double GPA_Cal(double[][] GPA_Array) {
 		double ch = GPA_Array[0][1]+GPA_Array[1][1]+GPA_Array[2][1]+GPA_Array[3][1];
 		double qp = 0;
