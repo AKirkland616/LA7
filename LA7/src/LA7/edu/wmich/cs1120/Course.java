@@ -14,7 +14,7 @@ public class Course implements ICourse {
 	 * 
 	 * @param n makes a string for the name
 	 * @param numb makes a string parseint the number for the course
-	 * @param capi makes a strign parseint for the capacity of the course
+	 * @param capi makes a string parseint for the capacity of the course
 	 */
 	public Course(String n, String numb, String capi) {
 		name = n;
